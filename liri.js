@@ -79,14 +79,18 @@ function movieThis() {
     }
 }
 
+var bandApi = keyList.apiKeys.bands;
+
 //==============concertThis is differently not working==========//
-function concertThis(artist) {
-    const queryURL = ("https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + bandApi)
+function concertThis() {
+    const artist = process.argv[3]
+    const queryURL = (" https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + bandApi)
     axios.get(queryURL)
         .then(function (response) {
-            let concert = response.data
-            console.log(concert.venue.name)
-
+            var concert = response.data;
+            console.log(concert[0].venue.name);
+            console.log(concert[0].venue.country);
+            console.log(concert[0].festival_start_date);
         })
         .catch(function (error) {
             console.log(error)
@@ -100,7 +104,7 @@ switch (liriCmd) {
         break
 
     case "concertThis":
-        concertThis(artist)
+        concertThis()
         break
 
     case "spotify-this-song":
@@ -110,6 +114,8 @@ switch (liriCmd) {
     case "movie-this":
         movieThis()
         break
+    case "boost":
+        console.log('stutututu');
 }
 
 //ignore below for now ===========================================
