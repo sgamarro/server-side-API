@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/sgamarro/server-side-API#readme",
   "dependencies": {
-    "axios": "^0.26.0"
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0",
+    "moment": "^2.29.1",
+    "node-spotify-api": "^1.1.1"
   }
 }
