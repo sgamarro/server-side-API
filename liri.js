@@ -8,7 +8,7 @@ const fs = require("fs")
 const liriCmd = process.argv[2]
 const title = process.argv[3]
 
-//=============SpotifyThisSong is now working don't touch this. Chris 3/2/22===============//
+//=============SpotifyThisSong is now working don't touch this.===============//
 function spotifyThisSong() {
     if (title == null) {
         //send the request to the Spotify API
@@ -47,7 +47,7 @@ function spotifyThisSong() {
     }
 }
 
-//==============movieThis is now working. chris 3/2/22==========//
+//==============movieThis is now working.==========//
 function movieThis() {
     //If the user does not enter a movie title, the utility will default to a search for the movie Mr. Nobody"
     if (title == null) {
@@ -81,7 +81,7 @@ function movieThis() {
 
 var bandApi = keyList.apiKeys.bands;
 
-//==============concertThis is differently not working==========//
+//==============concertThis is now working==========//
 function concertThis() {
     const artist = process.argv[3]
     const queryURL = (" https://rest.bandsintown.com/artists/" + artist + "/events?app_id=" + bandApi)
