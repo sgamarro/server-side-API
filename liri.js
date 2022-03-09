@@ -98,47 +98,36 @@ function concertThis() {
 }
 
 //LIRI Commands
-switch (liriCmd) {
-    case "do-what-it-says":
-        doWhatItSays()
-        break
-
-    case "concertThis":
-        concertThis()
-        break
-
-    case "spotify-this-song":
-        spotifyThisSong()
-        break
-
-    case "movie-this":
-        movieThis()
-        break
-    case "boost":
-        console.log('stutututu');
+function commands(liriCmd, input) {
+    switch (liriCmd) {
+        case "do-what-it-says":
+            doWhatItSays()
+            break
+        case "concert-this":
+            concertThis()
+            break
+        case "spotify-this-song":
+            spotifyThisSong()
+            break
+        case "movie-this":
+            movieThis()
+            break
+    }
 }
 
-//ignore below for now ===========================================
 
+//getting data from random.txt is now working. ===========================================
 function doWhatItSays() {
-
-    fs.open("random.txt", "r", (err, fd) => {
-        if (err) throw err
-        fs.fstat(fd, (err, stat) => {
-            if (err) throw (err)
-            fs.close(fd, (err) => {
-            })
-        })
-    })
-
-    //use fs.readFile to read the contents of the random.txt file - to run node liri?
-    fs.readFile("random.txt", "utf-8", (err, data) => {
-        if (err) throw err
-        // console.log("err: ", err);
-        //parse the contents of the random.txt file into line command arguments
-        var splitDat = data.split(",")
-        spotifyThisSong(splitDat[0], splitDat[1])
+    //Reads text in random.txt file
+    fs.readFile("random.txt", "utf8", function (error, data) {
+        if (error) {
+            return console.log(error)
+        }
+        else {
+            console.log(data)
+        }
     })
 }
+commands(liriCmd)
 
 
